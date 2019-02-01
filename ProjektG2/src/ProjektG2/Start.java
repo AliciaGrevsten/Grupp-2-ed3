@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ProjektG2;
 
 import java.io.File;
@@ -12,27 +7,37 @@ import oru.inf.InfException;
 
 public class Start {
     
-    private static File db = new File("/DB/TESTG2.FDB");
-    private static InfDB idb;
+    private static InfDB db;
     
-    public static void main(String [] args)
-    {       
-        try
-        {
-            
-        idb = new InfDB (db.getAbsolutePath());
-        System.out.println(db.getAbsolutePath());
+    public static void main(String [] args){
         
-        new TestG2(idb).setVisible(true);
-        
+        File databas = new File("TESTG2.FDB");
+                
+        try{
+        db = new InfDB(databas.getAbsolutePath());
+        } catch (InfException e){
+            JOptionPane.showMessageDialog(null, "Error" + e);
         }
-        catch(InfException e){
-        System.out.println(e.getMessage());
-        JOptionPane.showMessageDialog(null, "Error "+ e);
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code ">
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TestG2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new TestG2(db).setVisible(true);
+            }
+        });
+        
+        
         }
     }
-    
-    public static InfDB getDatabase()
-    {
-    return idb;
-}}
