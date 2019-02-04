@@ -16,7 +16,7 @@ import oru.inf.InfDB;
  */
 public class Validering{
 
-    //LAGRAR INFDB I VARIABEL HOGWARTS
+    //HÄMTAR DATABASEN
     private static File db = new File("/DB/TESTG2.FDB");
     private static InfDB idb;
 
