@@ -6,16 +6,17 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 public class Start {
-    
+
     private static InfDB db;
-    
-    public static void main(String [] args){
-        
+
+    public static void main(String[] args) {
+
         File databas = new File("TESTG2.FDB");
-                
-        try{
-        db = new InfDB(databas.getAbsolutePath());
-        } catch (InfException e){
+
+        try {
+            db = new InfDB(databas.getAbsolutePath());
+
+        } catch (InfException e) {
             JOptionPane.showMessageDialog(null, "Error" + e);
         }
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code ">
@@ -37,7 +38,6 @@ public class Start {
                 new TestG2(db).setVisible(true);
             }
         });
-        
-        
-        }
+
     }
+}

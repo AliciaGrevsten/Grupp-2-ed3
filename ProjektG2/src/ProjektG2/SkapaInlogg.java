@@ -8,12 +8,13 @@ package ProjektG2;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+
 /**
  *
  * @author lisajansson
  */
 public class SkapaInlogg extends javax.swing.JFrame {
-    
+
     private InfDB idb;
 
     /**
@@ -193,33 +194,43 @@ public class SkapaInlogg extends javax.swing.JFrame {
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         // Knapp lägg till en ny lärare i systemet
-        
+
+        //VARIABLAR FÖR LÄGGA TILL ANVÄNDARE
+        String pnr = tf1.getText(); //Textbox personnummer, lokal variabel hämtar textfältet
+        String titeln = tf2.getText();
+        String fnamn = tf3.getText();
+        String enamn = tf4.getText();
+        String beskrivningen = tf5.getText();
+        String kontorsnr = tf6.getText();
+        String losenord = tf7.getText();
+        String admin = "I"; //Sätter användare till icke admin by default
+        String email = tf8.getText();
+        String notis = "F";
+
+        //VARIABLAR FÖR EMAIL
+        String amne = "Nytt konto har skapats";
+        String valkommen = "Välkommen " + fnamn + " till lärarplattformen för Informatik! \n\n"
+                + "Ditt användarnamn är: " + pnr + " \n"
+                + "Ditt lösenord är: " + losenord;
+
         try {
-        
-            String pnr = tf1.getText(); //Textbox personnummer, lokal variabel hämtar textfältet
-            String titeln = tf2.getText();
-            String fnamn = tf3.getText();
-            String enamn = tf4.getText();
-            String beskrivningen = tf5.getText();
-            String kontorsnr = tf6.getText();
-            String losenord = tf7.getText();
-            String admin = "I"; //Sätter användare till icke admin by default
-            String email = tf8.getText();
-            String notis = "F"; 
-            
+
             String fraga = "INSERT INTO anvandare(PNR, fornamn, efternamn, beskrivning, losenord, kontorsnr, titel, adminstatus) VALUES(" + pnr + ", '" + fnamn + "', '" + enamn + "', '" + beskrivningen + "', '" + losenord + "', '" + kontorsnr + "', '" + titeln + "', '" + admin + "')";
             idb.insert(fraga); // Uppdaterar databasen
-            
+
             String fraga2 = "INSERT INTO EMAIL(MAIL, NOTIS, PNR) VALUES('" + email + "', '" + notis + "', '" + pnr + "')";
-            
+
             JOptionPane.showMessageDialog(null, "Användaren har lagts till i systemet");
-            idb.insert(fraga2); // Uppdaterar databasen
-        }
-        
-         catch(Exception e) {
+            idb.insert(fraga2); // Uppdaterar databasen         
+
+            //KÖR METOD FÖR ATT SKICKA MAIL I KLASSEN START
+            Mail.start(email, amne, valkommen);
+
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage()); // Pop up felmeddelande
         }
-        
+
+
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void tf8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf8ActionPerformed
@@ -230,8 +241,6 @@ public class SkapaInlogg extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tf5ActionPerformed
 
-
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel beskrivning;
