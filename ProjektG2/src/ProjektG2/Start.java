@@ -11,10 +11,11 @@ public class Start {
 
     public static void main(String[] args) {
 
-        File databas = new File("TESTG2.FDB");
+        File databas = new File("ProjektG2/TESTG2.FDB");
 
         try {
             db = new InfDB(databas.getAbsolutePath());
+            
 
         } catch (InfException e) {
             JOptionPane.showMessageDialog(null, "Error" + e);
@@ -28,14 +29,14 @@ public class Start {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TestG2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoggaIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new TestG2(db).setVisible(true);
+                new LoggaIn(db).setVisible(true);
             }
         });
 
