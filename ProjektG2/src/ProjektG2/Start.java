@@ -11,7 +11,7 @@ public class Start {
 
     public static void main(String[] args) {
 
-        File databas = new File("ProjektG2/TESTG2.FDB");
+        File databas = new File("TESTG2.FDB");
 
         try {
             db = new InfDB(databas.getAbsolutePath());

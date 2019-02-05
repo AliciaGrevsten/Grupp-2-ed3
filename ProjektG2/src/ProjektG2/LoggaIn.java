@@ -124,9 +124,9 @@ public class LoggaIn extends javax.swing.JFrame {
 
         try {
 
-            String sql = "SELECT LOSENORD FROM ANVANDARE WHERE PNR = " + user;
+            String sql = "SELECT LOSENORD FROM ANVANDARE WHERE PNR = " + "'" + user + "'";
             loggaIn = db.fetchSingle(sql);
-            String sql1 = "SELECT ADMINSTATUS FROM ANVANDARE WHERE PNR = " + user;
+            String sql1 = "SELECT ADMINSTATUS FROM ANVANDARE WHERE PNR = " + "'" + user + "'";
             admin = db.fetchSingle(sql1);
             if (pw.equals(loggaIn)) {
                 if (admin.equals("H")) {
