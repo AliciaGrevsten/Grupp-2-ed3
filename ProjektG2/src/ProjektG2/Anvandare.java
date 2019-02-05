@@ -29,12 +29,38 @@ public class Anvandare extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        mPane = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel1.setText("Välkommen");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel2.setText("Välkommen till lärarplattformen för informatik");
+
+        mPane.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        mPane.setRequestFocusEnabled(false);
+
+        jMenu1.setText("Start");
+        jMenu1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        mPane.add(jMenu1);
+
+        jMenu2.setText("Blogg");
+        jMenu2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        mPane.add(jMenu2);
+
+        jMenu5.setText("Profil");
+        jMenu5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        mPane.add(jMenu5);
+
+        jMenu4.setText("Logga ut");
+        jMenu4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        mPane.add(jMenu4);
+
+        setJMenuBar(mPane);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -42,21 +68,26 @@ public class Anvandare extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addComponent(jLabel2)
+                .addContainerGap(67, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(240, Short.MAX_VALUE))
+                .addGap(54, 54, 54)
+                .addComponent(jLabel2)
+                .addContainerGap(366, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenuBar mPane;
     // End of variables declaration//GEN-END:variables
 }
